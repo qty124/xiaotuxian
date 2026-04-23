@@ -1,83 +1,24 @@
-/* ===== Carousel Data ===== */
-const carouselItems = [
-  { emoji: '🍓', text: '新鲜水果 全场8折', sub: '时令鲜果 新鲜直达' },
-  { emoji: '🥬', text: '有机蔬菜专区', sub: '生态农场 天然无污染' },
-  { emoji: '🥩', text: '肉禽海鲜 满99减20', sub: '品质肉类 源头直采' },
-  { emoji: '🍯', text: '零食饮料 爆款特惠', sub: '精选好物 限时抢购' }
-];
-
-/* ===== Category Data ===== */
-const categories = [
-  { icon: '🍎', name: '时令鲜果' },
-  { icon: '🥬', name: '新鲜蔬菜' },
-  { icon: '🥩', name: '肉禽蛋奶' },
-  { icon: '🐟', name: '海鲜水产' },
-  { icon: '🍚', name: '粮油调味' },
-  { icon: '🥛', name: '饮品牛奶' },
-  { icon: '🍪', name: '零食干果' },
-  { icon: '🧴', name: '家居日用' }
-];
-
 /* ===== Product Data ===== */
 const products = [
-  { emoji: '🍎', name: '红富士苹果 5斤装', price: '29.9', oldPrice: '45.0', tag: '爆款' },
-  { emoji: '🍇', name: '阳光玫瑰葡萄 2斤', price: '49.8', oldPrice: '68.0', tag: '新品' },
-  { emoji: '🥚', name: '土鸡蛋 30枚装', price: '25.8', oldPrice: '35.0', tag: '热卖' },
-  { emoji: '🥩', name: '五花肉 500g', price: '32.0', oldPrice: '40.0', tag: '特惠' },
-  { emoji: '🍅', name: '云南高原番茄 1kg', price: '18.8', oldPrice: '26.0', tag: '精选' },
-  { emoji: '🐟', name: '鲜活鲈鱼 约500g', price: '38.0', oldPrice: '52.0', tag: '新品' },
-  { emoji: '🥛', name: '蒙牛纯牛奶 250ml*24', price: '49.9', oldPrice: '65.0', tag: '爆款' },
-  { emoji: '🍠', name: '正宗烟薯 5斤', price: '22.8', oldPrice: '32.0', tag: '特惠' },
-  { emoji: '🍋', name: '柠檬 4个装', price: '9.9', oldPrice: '15.0', tag: '热卖' },
-  { emoji: '🧀', name: '马苏里拉奶酪 200g', price: '28.0', oldPrice: '38.0', tag: '精选' }
+  { img: 'images/fresh_goods_1.jpg', name: '新鲜红富士苹果 5斤装 脆甜多汁', price: '29.9', oldPrice: '45.0', tag: '爆款' },
+  { img: 'images/fresh_goods_2.jpg', name: '阳光玫瑰葡萄 2斤 香甜浓郁', price: '49.8', oldPrice: '68.0', tag: '新品' },
+  { img: 'images/fresh_goods_3.jpg', name: '农家土鸡蛋 30枚装 营养健康', price: '25.8', oldPrice: '35.0', tag: '热卖' },
+  { img: 'images/fresh_goods_4.jpg', name: '新鲜五花肉 500g 肉质细嫩', price: '32.0', oldPrice: '40.0', tag: '特惠' },
+  { img: 'images/fresh_goods_5.jpg', name: '云南高原番茄 1kg 自然成熟', price: '18.8', oldPrice: '26.0', tag: '精选' },
+  { img: 'images/new_goods_1.jpg', name: '鲜活鲈鱼 约500g 肉质鲜美', price: '38.0', oldPrice: '52.0', tag: '新品' },
+  { img: 'images/new_goods_2.jpg', name: '有机纯牛奶 250ml*24 奶香浓郁', price: '49.9', oldPrice: '65.0', tag: '爆款' },
+  { img: 'images/new_goods_3.jpg', name: '正宗烟薯 5斤 软糯香甜', price: '22.8', oldPrice: '32.0', tag: '特惠' },
+  { img: 'images/goods1.png', name: '新鲜柠檬 4个装 维C丰富', price: '9.9', oldPrice: '15.0', tag: '热卖' },
+  { img: 'images/goods2.png', name: '马苏里拉奶酪 200g 拉丝奶香', price: '28.0', oldPrice: '38.0', tag: '精选' }
 ];
 
 /* ===== DOM Ready ===== */
 document.addEventListener('DOMContentLoaded', () => {
-  renderCarousel();
-  renderCategories();
   renderProducts();
   initMobileMenu();
   initCarousel();
   initSubscribe();
 });
-
-/* ===== Render Carousel ===== */
-function renderCarousel() {
-  const track = document.getElementById('carouselTrack');
-  const dots = document.getElementById('carouselDots');
-  if (!track || !dots) return;
-
-  carouselItems.forEach((item, i) => {
-    const slide = document.createElement('div');
-    slide.className = 'carousel-slide';
-    slide.innerHTML = `
-      <div style="text-align:center;color:#fff">
-        <div style="font-size:5rem;margin-bottom:16px">${item.emoji}</div>
-        <div style="font-size:2rem;font-weight:700;margin-bottom:8px">${item.text}</div>
-        <div style="font-size:1rem;opacity:.8">${item.sub}</div>
-      </div>`;
-    track.appendChild(slide);
-
-    const dot = document.createElement('span');
-    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-    dot.dataset.index = i;
-    dot.addEventListener('click', () => goToSlide(i));
-    dots.appendChild(dot);
-  });
-}
-
-/* ===== Render Categories ===== */
-function renderCategories() {
-  const grid = document.getElementById('categoryGrid');
-  if (!grid) return;
-  categories.forEach(cat => {
-    const card = document.createElement('div');
-    card.className = 'category-card';
-    card.innerHTML = `<span class="category-icon">${cat.icon}</span><span class="category-name">${cat.name}</span>`;
-    grid.appendChild(card);
-  });
-}
 
 /* ===== Render Products ===== */
 function renderProducts() {
@@ -87,7 +28,9 @@ function renderProducts() {
     const card = document.createElement('div');
     card.className = 'product-card';
     card.innerHTML = `
-      <div class="product-img">${prod.emoji}</div>
+      <div class="product-img-wrapper">
+        <img src="${prod.img}" alt="${prod.name}" loading="lazy">
+      </div>
       <div class="product-info">
         <div class="product-name">${prod.name}</div>
         <div class="product-bottom">
@@ -115,11 +58,18 @@ function initCarousel() {
   const nextBtn = document.getElementById('carouselNext');
   if (!track || !dots) return;
 
+  const slides = track.querySelectorAll('.carousel-slide');
   let current = 0;
-  const total = carouselItems.length;
+  const total = slides.length;
   let autoTimer;
-  let touchStartX = 0;
-  let touchEndX = 0;
+
+  // Build dots
+  slides.forEach((_, i) => {
+    const dot = document.createElement('span');
+    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    dot.addEventListener('click', () => goToSlide(i));
+    dots.appendChild(dot);
+  });
 
   function goToSlide(index) {
     current = ((index % total) + total) % total;
@@ -132,19 +82,17 @@ function initCarousel() {
   function nextSlide() { goToSlide(current + 1); }
   function prevSlide() { goToSlide(current - 1); }
 
-  function startAuto() {
-    autoTimer = setInterval(nextSlide, 3500);
-  }
+  function startAuto() { autoTimer = setInterval(nextSlide, 3500); }
   function stopAuto() { clearInterval(autoTimer); }
 
   if (nextBtn) nextBtn.addEventListener('click', () => { stopAuto(); nextSlide(); startAuto(); });
   if (prevBtn) prevBtn.addEventListener('click', () => { stopAuto(); prevSlide(); startAuto(); });
 
   // Touch swipe
+  let touchStartX = 0;
   track.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; stopAuto(); }, { passive: true });
   track.addEventListener('touchend', e => {
-    touchEndX = e.changedTouches[0].screenX;
-    const diff = touchStartX - touchEndX;
+    const diff = touchStartX - e.changedTouches[0].screenX;
     if (Math.abs(diff) > 50) { diff > 0 ? nextSlide() : prevSlide(); }
     startAuto();
   }, { passive: true });
@@ -163,8 +111,6 @@ function initSubscribe() {
   const form = document.getElementById('subscribeForm');
   const emailInput = document.getElementById('subscribeEmail');
   const errorEl = document.getElementById('subscribeError');
-  const toast = document.getElementById('toast');
-  const toastMsg = document.getElementById('toastMsg');
 
   if (!form || !emailInput) return;
 
@@ -185,12 +131,10 @@ function initSubscribe() {
     }
 
     errorEl.textContent = '';
-    // Show toast
     showToast('订阅成功！感谢您的关注 🎉');
     emailInput.value = '';
   });
 
-  // Clear error on input
   emailInput.addEventListener('input', () => { errorEl.textContent = ''; });
 }
 
