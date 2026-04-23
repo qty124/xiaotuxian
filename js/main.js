@@ -1,15 +1,15 @@
 /* ===== Product Data ===== */
 const products = [
-  { img: 'images/fresh_goods_1.jpg', name: '新鲜红富士苹果 5斤装 脆甜多汁', price: '29.9', oldPrice: '45.0', tag: '爆款' },
-  { img: 'images/fresh_goods_2.jpg', name: '阳光玫瑰葡萄 2斤 香甜浓郁', price: '49.8', oldPrice: '68.0', tag: '新品' },
-  { img: 'images/fresh_goods_3.jpg', name: '农家土鸡蛋 30枚装 营养健康', price: '25.8', oldPrice: '35.0', tag: '热卖' },
-  { img: 'images/fresh_goods_4.jpg', name: '新鲜五花肉 500g 肉质细嫩', price: '32.0', oldPrice: '40.0', tag: '特惠' },
-  { img: 'images/fresh_goods_5.jpg', name: '云南高原番茄 1kg 自然成熟', price: '18.8', oldPrice: '26.0', tag: '精选' },
-  { img: 'images/new_goods_1.jpg', name: '鲜活鲈鱼 约500g 肉质鲜美', price: '38.0', oldPrice: '52.0', tag: '新品' },
-  { img: 'images/new_goods_2.jpg', name: '有机纯牛奶 250ml*24 奶香浓郁', price: '49.9', oldPrice: '65.0', tag: '爆款' },
-  { img: 'images/new_goods_3.jpg', name: '正宗烟薯 5斤 软糯香甜', price: '22.8', oldPrice: '32.0', tag: '特惠' },
-  { img: 'images/goods1.png', name: '新鲜柠檬 4个装 维C丰富', price: '9.9', oldPrice: '15.0', tag: '热卖' },
-  { img: 'images/goods2.png', name: '马苏里拉奶酪 200g 拉丝奶香', price: '28.0', oldPrice: '38.0', tag: '精选' }
+  { img: 'images/images/fresh_goods_1.jpg', name: '新鲜红富士苹果 5斤装 脆甜多汁', price: '29.9', oldPrice: '45.0', tag: '爆款' },
+  { img: 'images/images/fresh_goods_2.jpg', name: '阳光玫瑰葡萄 2斤 香甜浓郁', price: '49.8', oldPrice: '68.0', tag: '新品' },
+  { img: 'images/images/fresh_goods_3.jpg', name: '农家土鸡蛋 30枚装 营养健康', price: '25.8', oldPrice: '35.0', tag: '热卖' },
+  { img: 'images/images/fresh_goods_4.jpg', name: '新鲜五花肉 500g 肉质细嫩', price: '32.0', oldPrice: '40.0', tag: '特惠' },
+  { img: 'images/images/fresh_goods_5.jpg', name: '云南高原番茄 1kg 自然成熟', price: '18.8', oldPrice: '26.0', tag: '精选' },
+  { img: 'images/images/new_goods_1.jpg', name: '鲜活鲈鱼 约500g 肉质鲜美', price: '38.0', oldPrice: '52.0', tag: '新品' },
+  { img: 'images/images/new_goods_2.jpg', name: '有机纯牛奶 250ml*24 奶香浓郁', price: '49.9', oldPrice: '65.0', tag: '爆款' },
+  { img: 'images/images/new_goods_3.jpg', name: '正宗烟薯 5斤 软糯香甜', price: '22.8', oldPrice: '32.0', tag: '特惠' },
+  { img: 'images/images/goods1.png', name: '新鲜柠檬 4个装 维C丰富', price: '9.9', oldPrice: '15.0', tag: '热卖' },
+  { img: 'images/images/goods2.png', name: '马苏里拉奶酪 200g 拉丝奶香', price: '28.0', oldPrice: '38.0', tag: '精选' }
 ];
 
 /* ===== DOM Ready ===== */
